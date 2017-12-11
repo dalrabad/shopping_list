@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
   belongs_to :List
-  validates :name, presence: true 
-  validates :name, uniqueness: true 
+  validates_uniqueness_of :name
+  validates :qty, presence: true 
+  validate :qty, numericality: {only_integer: true}
 
 
 end
